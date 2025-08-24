@@ -23,10 +23,15 @@ const PORT = process.env.PORT || 3001;
 
 //start server only after DB connection
 async function startServer() {
-  await connectDatabase();
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+  try {
+    await connectDatabase(); //wait for DB connection
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error("Failed to start server:", error.message);
+    process.exit(1); //exit process if startup fails
+  }
 }
 
 startServer();
