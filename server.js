@@ -7,11 +7,17 @@ const connectDatabase = require("./db/connection");
 //import express
 const express = require("express");
 
+//import routes
+const bookRoutes = require("./routes/bookRoutes");
+
 //create express app
 const app = express();
 
 //middleware to parse JSON
 app.use(express.json());
+
+//mount routes
+app.use("/api/books", bookRoutes);
 
 //test route
 app.get("/", (req, res) => {
