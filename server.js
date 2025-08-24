@@ -1,17 +1,14 @@
 //load environmental variables
 require("dotenv").config();
 
-//import express
-const express = require("express");
-
 //import database connection
 const connectDatabase = require("./db/connection");
 
+//import express
+const express = require("express");
+
 //create express app
 const app = express();
-
-//connect to database
-connectDatabase();
 
 //middleware to parse JSON
 app.use(express.json());
@@ -24,7 +21,12 @@ app.get("/", (req, res) => {
 //define port
 const PORT = process.env.PORT || 3001;
 
-//start server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+//start server only after DB connection
+async function startServer() {
+  await connectDatabase();
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
+
+startServer();
