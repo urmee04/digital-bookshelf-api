@@ -87,7 +87,7 @@ This document outlines the available endpoints for the Book API.
 
 Base URL: /api/books
 
-1. POST (To Create a New Book)
+**1. POST (To Create a New Book)**
 
 - Open a new tab in Postman.
 - Select POST as the HTTP method.
@@ -98,25 +98,25 @@ Base URL: /api/books
 - Click the Send button.
 - If successful, you will see a confirmation message (e.g., "Book added Successfully") and the complete information of the newly created book, including its unique _id, in the Response Body.
 
-2. GET (To View All Books)
+**2. GET (To View All Books)**
 
 - Open a new tab in Postman.
 - Select GET as the HTTP method.
-- In the URL bar, type: http://localhost:5000/api/books
+- In the URL bar, type: http://localhost:3000/api/books
 - Click the Send button.
 
 You will see a list of all the books you have created in the Response Body below.
 
-3. GET by ID (To View a Single Book)
+**3. GET by ID (To View a Single Book)**
 
 First, copy the "_id" of any book from the GET request above.
 - Select GET as the HTTP method.
-- In the URL bar, type: http://localhost:5000/api/books/your_copied_id
+- In the URL bar, type: http://localhost:3000/api/books/your_copied_id
 - Click the Send button.
 
 You will now see the information for only that specific book.
 
-4. PUT (To Update a Book)
+**4. PUT (To Update a Book)**
 
 - Copy the "_id" of the book you want to update.
 - Select PUT as the HTTP method.
@@ -127,7 +127,7 @@ You will now see the information for only that specific book.
 - Click the Send button.
 - You will see the complete updated information of the book in the response.
 
-5. DELETE (To Delete a Book)
+**5. DELETE (To Delete a Book)**
 
 - Copy the "_id" of the book you want to delete.
 - Select DELETE as the HTTP method.
